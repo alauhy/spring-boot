@@ -1,9 +1,6 @@
 package com.oocl.fullstack.springboot.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -41,5 +38,8 @@ public class File {
     private String name;
     @NotNull
     private long time;
+    @OneToOne
+    @JoinColumn(name = "fiilerecord_id")
+    private FileRecord fileRecord;
 
 }

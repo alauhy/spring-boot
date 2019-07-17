@@ -1,6 +1,7 @@
 package com.oocl.fullstack.springboot.controller;
 
 import com.oocl.fullstack.springboot.model.File;
+import com.oocl.fullstack.springboot.model.FileRecord;
 import com.oocl.fullstack.springboot.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,12 +16,10 @@ public class FileController {
     private FileService fileService;
 
     @PostMapping("/files")
-    public ResponseEntity addFile(@RequestBody File file) {
-        if (file.getName() != null && file.getTime() != 0) {
-            fileService.saved(file);
-            return ResponseEntity.status(HttpStatus.CREATED).build();
-        }
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    public File addFile(@RequestBody File file) {
+
+            return fileService.saved(file);
+
 
     }
 
