@@ -39,4 +39,10 @@ public class FileController {
         return fileService.findByName(name);
     }
 
+    @DeleteMapping("/files/{id}")
+    public ResponseEntity deleteFile(@PathVariable int id ){
+        fileService.deleteById(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
 }
