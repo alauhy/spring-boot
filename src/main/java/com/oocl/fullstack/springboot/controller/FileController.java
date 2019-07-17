@@ -5,10 +5,7 @@ import com.oocl.fullstack.springboot.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,4 +28,10 @@ public class FileController {
     public List<File> allFiles() {
         return fileService.allFiles();
     }
+
+    @GetMapping("/files/{id}")
+    public File findById(@PathVariable int id){
+        return fileService.findById(id);
+    }
+
 }
