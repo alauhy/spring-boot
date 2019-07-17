@@ -34,4 +34,9 @@ public class FileController {
         return fileService.findById(id);
     }
 
+    @GetMapping("/files/{name}")
+    public List<File> findByName(@PathVariable String name){
+        return fileService.findByName(name);
+    }
+
 }
