@@ -16,6 +16,4 @@ public class ProcuratorController {
     public Procurator findById(@PathVariable int id){
         return procuratorService.findById(id);
     }
-
 }
-

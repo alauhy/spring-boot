@@ -39,6 +39,18 @@ public class File {
     @NotNull
     private long time;
 
+    public Procuratorate getProcuratorate() {
+        return procuratorate;
+    }
+
+    public void setProcuratorate(Procuratorate procuratorate) {
+        this.procuratorate = procuratorate;
+    }
+
+    @ManyToOne()
+    @NotNull
+    private Procuratorate procuratorate;
+
     public FileRecord getFileRecord() {
         return fileRecord;
     }
