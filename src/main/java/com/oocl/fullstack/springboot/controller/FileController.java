@@ -44,4 +44,9 @@ public class FileController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
+    @PostMapping("/files/{id}/filerecordes")
+    public File addFileRecordToFile(@PathVariable int id,@RequestBody FileRecord fileRecord){
+        return fileService.addFileRecordToFile(id,fileRecord);
+    }
+
 }

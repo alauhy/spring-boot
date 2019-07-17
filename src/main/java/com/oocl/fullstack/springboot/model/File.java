@@ -38,8 +38,17 @@ public class File {
     private String name;
     @NotNull
     private long time;
+
+    public FileRecord getFileRecord() {
+        return fileRecord;
+    }
+
+    public void setFileRecord(FileRecord fileRecord) {
+        this.fileRecord = fileRecord;
+    }
+
     @OneToOne
-    @JoinColumn(name = "fiilerecord_id")
+    @JoinColumn(name = "filerecord_id")
     private FileRecord fileRecord;
 
 }
