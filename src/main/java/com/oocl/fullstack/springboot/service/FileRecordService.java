@@ -16,4 +16,8 @@ public class FileRecordService implements FileRecordImpl {
         return fileRecordRepository.save(fileRecord);
     }
 
+    @Override
+    public FileRecord findById(int id) {
+        return fileRecordRepository.findById(id).get();
+    }
 }
