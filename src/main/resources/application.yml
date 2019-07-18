@@ -5,3 +5,13 @@ logging:
         springframework:
           web: DEBUG
         hibernate: ERROR
+
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+  profiles:
+    active: local

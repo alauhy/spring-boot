@@ -15,7 +15,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @DataJpaTest
 @ExtendWith(SpringExtension.class)
-public class FileRecordTest {
+public class FileRecordRepositoryTest {
     @Autowired
     private FileRecordRepository fileRecordRepository;
 

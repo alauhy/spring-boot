@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import javax.transaction.Transactional;
 import java.awt.*;
 import java.util.Date;
 import java.util.List;
@@ -18,6 +19,8 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @DataJpaTest
 @ExtendWith(SpringExtension.class)
 public class FileRepositoryTest {
+
+
     @Autowired
     private FileRepository fileRepository;
 
@@ -97,13 +100,13 @@ public class FileRepositoryTest {
         fileRepository.save(file);
         fileRepository.save(file2);
         fileRepository.save(file3);
-        fileRepository.deleteById(2);
+        fileRepository.deleteById(file.getId());
         List<File> fetchedFiles = fileRepository.findAll();
 
         assertThat((fetchedFiles).size()).isEqualTo(2);
         assertThat((fetchedFiles).get(1).getName()).isEqualTo("开膛手杰克");
         assertThat((fetchedFiles).get(1).getTime()).isEqualTo(121231343);
-        assertThat((fetchedFiles).get(1).getId()).isEqualTo(3);
+        assertThat((fetchedFiles).get(1).getId()).isEqualTo(file3.getId());
 
 
     }
@@ -117,7 +120,7 @@ public class FileRepositoryTest {
         fileRecord.setObjectiveDetail("222");
         file.setFileRecord(fileRecord);
         fileRepository.save(file);
-        File file1 = fileRepository.findById(1).get();
+        File file1 = fileRepository.findById(file.getId()).get();
 
         assertThat(file1.getFileRecord().getObjectiveDetail()).isEqualTo("222");
         assertThat(file1.getFileRecord().getSubjectiveDetail()).isEqualTo("111");

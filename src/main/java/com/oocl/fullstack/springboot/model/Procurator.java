@@ -13,7 +13,7 @@ public class Procurator {
     private String name;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     public String getName() {

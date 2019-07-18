@@ -11,10 +11,9 @@ public class Procuratorate {
     @Column(unique = true)
     private String name;
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "procuratorate_id")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "procuratorate")
     private List<File> files;
 
     @OneToMany(cascade = CascadeType.ALL)

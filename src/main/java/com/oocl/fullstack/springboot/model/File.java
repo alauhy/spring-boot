@@ -1,5 +1,7 @@
 package com.oocl.fullstack.springboot.model;
 
+import org.omg.CORBA.portable.IDLEntity;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -31,7 +33,7 @@ public class File {
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @NotNull
@@ -39,6 +41,8 @@ public class File {
     @NotNull
     private long time;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Procuratorate procuratorate;
     public FileRecord getFileRecord() {
         return fileRecord;
     }
