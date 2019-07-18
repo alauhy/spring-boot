@@ -4,6 +4,7 @@ import com.oocl.fullstack.springboot.model.File;
 import com.oocl.fullstack.springboot.model.FileRecord;
 import com.oocl.fullstack.springboot.repository.FileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 
@@ -18,9 +19,8 @@ public class FileService implements FileImpl {
 
     @Override
     public List<File> allFiles() {
-        return fileRepository.findAll()
-                .stream().sorted(Comparator.comparing(File::getTime).reversed())
-                .collect(Collectors.toList());
+        return fileRepository.findAllByOrderByTimeDesc();
+
     }
 
     @Override
@@ -30,7 +30,7 @@ public class FileService implements FileImpl {
 
     @Override
     public List<File> findByName(String name) {
-        return fileRepository.findAll().stream().filter(e -> e.getName().equals(name)).collect(Collectors.toList());
+        return fileRepository.findByName(name);
     }
 
     @Override

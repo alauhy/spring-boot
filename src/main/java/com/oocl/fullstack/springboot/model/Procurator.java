@@ -1,5 +1,7 @@
 package com.oocl.fullstack.springboot.model;
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -7,13 +9,12 @@ import javax.validation.constraints.NotNull;
 @Table(name = "procurator")
 public class Procurator {
     @NotNull
+    @UniqueElements
     private String name;
 
     @Id
     @GeneratedValue
     private int id;
-    @ManyToOne
-    private Procuratorate procuratorate;
 
     public String getName() {
         return name;
