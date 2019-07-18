@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "procurator")
 public class Procurator {
     @NotNull
-    @UniqueElements
+    @Column(unique = true)
     private String name;
 
     @Id
