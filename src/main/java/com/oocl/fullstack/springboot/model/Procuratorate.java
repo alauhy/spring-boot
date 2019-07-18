@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 @Table(name = "procuratorate")
 public class Procuratorate {
-    @UniqueElements
+    @Column(unique = true)
     private String name;
     @Id
     @GeneratedValue
